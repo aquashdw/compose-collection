@@ -1,0 +1,11 @@
+version: "3"
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    command: redis-server --requirepass ${SYSTEMPASS} --protected-mode yes --port 6379
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/redis/redis-data:/data"
+    ports:
+      - 6379:6379
