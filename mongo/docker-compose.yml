@@ -5,8 +5,8 @@ services:
     container_name: mongo-compose
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=$DB_USERNAME
-      - MONGO_INITDB_ROOT_PASSWORD=$DB_PASSWORD
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_DB_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_DB_PASSWORD
     volumes:
       - "$DOCKER_VOLUME_ROOT/mongo/mongo-data:/data/db"
       - "$DOCKER_VOLUME_ROOT/mongo/mongod.conf.orig:/etc/mongod.conf.orig"

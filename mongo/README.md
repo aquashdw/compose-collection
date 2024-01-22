@@ -2,10 +2,12 @@
 
 Document Based Database
 
+업데이트 필요: 여기서 사용하는 이미지는 Docker Hub에서 관리한다. Mongodb에서 따로 community-server를 제공함으로 확인할것
+
 ## Environment Variables
 
-- `DB_USERNAME`: DB 사용자 계정
-- `DB_PASSWORD`: DB 비밀번호
+- `MONGO_DB_USERNAME`: DB 사용자 계정
+- `MONGO_DB_PASSWORD`: DB 비밀번호
 
 ## Setting
 

@@ -4,7 +4,7 @@
 
 ## Environment Variables
 
-- `DB_PASSWORD`: `MYSQL_ROOT_PASSWORD`
+- `MYSQL_DB_PASSWORD`: `MYSQL_ROOT_PASSWORD`
 
 
 ## `mysql/mysql.cnf` -> `my.cnf`

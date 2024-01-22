@@ -5,6 +5,9 @@ services:
     container_name: postgres-compose
     restart: always
     environment:
-      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_PASSWORD=$POSTGRES_DB_PASSWORD
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/postgresql:/var/lib/postgresql"
+      - "$DOCKER_VOLUME_ROOT/postgresql/data:/var/lib/postgresql/data"
     ports:
       - 5432:5432

@@ -4,4 +4,4 @@
 
 ## Environment Variables
 
-- `SYSTEMPASS`: System Password
+- `REDIS_SYSTEMPASS`: System Password
