@@ -8,7 +8,7 @@ services:
       # password for root
       - MYSQL_ROOT_PASSWORD=$MYSQL_DB_PASSWORD
     volumes:
-      - "$DOCKER_VOLUME_ROOT/mysql/my.cnf:/etc/my.cnf"
+      - "$DOCKER_VOLUME_ROOT/mysql/my.cnf:/etc/mysql/my.cnf"
       - "$DOCKER_VOLUME_ROOT/mysql/mysql:/var/lib/mysql"
     ports:
       - 3306:3306

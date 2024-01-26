@@ -7,11 +7,11 @@
 - `MYSQL_DB_PASSWORD`: `MYSQL_ROOT_PASSWORD`
 
 
-## `mysql/mysql.cnf` -> `my.cnf`
+## `mysql/my.cnf` -> `my.cnf`
 
 `my.cnf`를 하나 첨부해 두었다. 사용하기 싫다면 아래 줄을 주석할것
 
 ```yaml
     volumes:
-      - "$DOCKER_VOLUME_ROOT/docker-volumes/mysql/my.cnf:/etc/my.cnf"
+      - "$DOCKER_VOLUME_ROOT/docker-volumes/mysql/my.cnf:/etc/mysql/my.cnf"
 ```
