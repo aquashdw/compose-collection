@@ -5,8 +5,8 @@ services:
     container_name: rabbitmq-compose
     restart: always
     environment:
-      - RABBITMQ_DEFAULT_USER=$RABBIT_USER
-      - RABBITMQ_DEFAULT_PASS=$RABBIT_PASS
+      - RABBITMQ_DEFAULT_USER=${RABBIT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBIT_PASS}
     volumes:
       - "$DOCKER_VOLUME_ROOT/rabbitmq:/var/lib/rabbitmq"
     ports:
