@@ -1,1 +1,1 @@
-export SYSTEMPASS=systempass
+mkdir -p $DOCKER_VOLUME_ROOT/redis
