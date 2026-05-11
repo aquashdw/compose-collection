@@ -1,0 +1,13 @@
+version: "3"
+services:
+  redis-stack:
+    image: redis/redis-stack
+    container_name: redis-stack-compose
+    restart: always
+    environment:
+      - REDIS_ARGS="--requirepass ${REDIS_SYSTEMPASS}"
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/redis/redis-data:/data"
+    ports:
+      - 6379:6379
+      - 8001:8001
