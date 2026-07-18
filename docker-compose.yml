@@ -1,0 +1,75 @@
+services:
+  postgresql:
+    image: postgres:16.1
+    container_name: postgres-compose
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=$POSTGRES_DB_PASSWORD
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/postgresql/data:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
+    networks:
+      - infra-network
+
+  mysql:
+    image: mysql:8
+    container_name: mysql-compose
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_DB_PASSWORD}
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/mysql:/var/lib/mysql"
+    ports:
+      - 3306:3306
+    networks:
+      - infra-network
+
+  redis:
+    image: redis:8.2
+    container_name: redis-compose
+    restart: always
+    environment:
+      - REDIS_SYSTEMPASS=${REDIS_SYSTEMPASS}
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/redis/redis-data:/data"
+      - "$DOCKER_VOLUME_ROOT/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro"
+    ports:
+      - 6379:6379
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    networks:
+      - infra-network
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: rabbitmq-compose
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBIT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBIT_PASS}
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/rabbitmq:/var/lib/rabbitmq"
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - infra-network
+
+  mongo:
+    image: mongo:4
+    container_name: mongo-compose
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_DB_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_DB_PASSWORD
+    volumes:
+      - "$DOCKER_VOLUME_ROOT/mongo/mongo-data:/data/db"
+      # - "$DOCKER_VOLUME_ROOT/mongo/mongod.conf.orig:/etc/mongod.conf.orig"
+    ports:
+      - 27017:27017
+    networks:
+      - infra-network
+
+networks:
+  infra-network:
+    name: infra-network
